@@ -1,7 +1,7 @@
 <?php
 namespace App\Routes;
 
-use App\Routes\Route;
+use app\Routes\Route;
 
 class Router
 {

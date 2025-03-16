@@ -1,9 +1,9 @@
 <?php
 
-use App\Controller\IndexController;
-use App\Routes\Router;
+use app\Controller\IndexController;
+use app\Routes\Router;
 
-require './vendor/autoload.php';
+require_once __DIR__. '/../vendor/autoload.php';
 session_start();
 
 $router = new Router($_SERVER['REQUEST_URI']);
