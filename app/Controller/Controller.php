@@ -1,32 +1,20 @@
 <?php
+namespace app\Controller;
 
-namespace App\Controller ; 
-
-
+use app\Config\BladeConfig;
 
 class Controller {
-
     protected $viewPath;
     protected $model;
 
-
-    public function __construct()
-    {
+    public function __construct() {
         $this->viewPath = __DIR__."/../../resources/views";
-        $modelName = str_replace('Controller', '',static::class);
+        $modelName = str_replace('Controller', '', static::class);
         $modelName = strtolower($modelName);
     }
 
-    protected function render($view, $data = [])
-    {
-
-        $file = __DIR__ . '/../../resources/views/' . str_replace('.', '/', $view) . '.php';
-        if (file_exists($file)) {
-            extract($data);
-            include $file;
-        }
-
+    protected function render($view, $data = []) {
+        $blade = BladeConfig::getBlade();
+        echo $blade->run($view, $data); 
     }
-
-
 }
